@@ -1,0 +1,50 @@
+{
+  "scanProfiles": [
+    {
+      "id": 1,
+      "name": "Quick Scan",
+      "key": "quick",
+      "description": "Basic security checks",
+      "scanType": "web",
+      "enabled": true,
+      "checks": [
+        "https",
+        "security-headers",
+        "ssl-certificate",
+        "server-information"
+      ],
+      "riskLevel": "low"
+    },
+    {
+      "id": 2,
+      "name": "Full Security Scan",
+      "key": "full",
+      "description": "Comprehensive security assessment",
+      "scanType": "web",
+      "enabled": true,
+      "checks": [
+        "https",
+        "security-headers",
+        "ssl-certificate",
+        "server-information",
+        "cookie-security",
+        "input-validation"
+      ],
+      "riskLevel": "medium"
+    },
+    {
+      "id": 3,
+      "name": "Server Configuration Scan",
+      "key": "server",
+      "description": "Check server security configuration",
+      "scanType": "server",
+      "enabled": true,
+      "checks": [
+        "server-configuration",
+        "open-services",
+        "outdated-software"
+      ],
+      "riskLevel": "medium"
+    }
+  ]
+}
