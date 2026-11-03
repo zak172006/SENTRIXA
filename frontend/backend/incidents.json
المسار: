@@ -1,0 +1,24 @@
+{
+  "incidents": [
+    {
+      "id": 1,
+      "title": "Suspicious Login Attempt",
+      "description": "Unusual login activity detected.",
+      "severity": "high",
+      "status": "open",
+      "assignedTo": null,
+      "createdAt": "2026-11-03T10:30:00Z",
+      "updatedAt": "2026-11-03T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Unauthorized Access Attempt",
+      "description": "An attempt to access a restricted resource was detected.",
+      "severity": "critical",
+      "status": "investigating",
+      "assignedTo": null,
+      "createdAt": "2026-11-03T11:00:00Z",
+      "updatedAt": "2026-11-03T11:15:00Z"
+    }
+  ]
+}
