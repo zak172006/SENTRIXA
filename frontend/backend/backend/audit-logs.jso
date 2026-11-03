@@ -1,0 +1,8 @@
+{
+  "logs": [],
+  "metadata": {
+    "application": "SENTRIXA",
+    "version": "1.0.0",
+    "description": "System activity and audit logs"
+  }
+}
