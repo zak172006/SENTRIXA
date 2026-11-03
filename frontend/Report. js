@@ -1,0 +1,121 @@
+// SENTRIXA - Security Report Database Model
+
+const mongoose = require("mongoose");
+
+const reportSchema = new mongoose.Schema({
+
+    title: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 200
+    },
+
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
+    type: {
+        type: String,
+        enum: [
+            "security",
+            "incident",
+            "vulnerability",
+            "audit",
+            "system",
+            "custom"
+        ],
+        default: "security"
+    },
+
+    status: {
+        type: String,
+        enum: [
+            "draft",
+            "pending",
+            "approved",
+            "rejected",
+            "archived"
+        ],
+        default: "draft"
+    },
+
+    severity: {
+        type: String,
+        enum: [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info"
+        ],
+        default: "medium"
+    },
+
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
+
+    reviewedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: null
+    },
+
+    findings: [{
+        title: String,
+        description: String,
+        severity: {
+            type: String,
+            enum: ["critical", "high", "medium", "low", "info"],
+            default: "medium"
+        },
+        recommendation: String
+    }],
+
+    recommendations: [{
+        type: String,
+        trim: true
+    }],
+
+    attachments: [{
+        filename: String,
+        path: String,
+        mimetype: String,
+        uploadedAt: {
+            type: Date,
+            default: Date.now
+        }
+    }],
+
+    reviewedAt: {
+        type: Date,
+        default: null
+    },
+
+    metadata: {
+        type: mongoose.Schema.Types.Mixed,
+        default: {}
+    }
+
+}, {
+    timestamps: true
+});
+
+// Database indexes
+
+reportSchema.index({ createdBy: 1 });
+
+reportSchema.index({ status: 1 });
+
+reportSchema.index({ severity: 1 });
+
+reportSchema.index({ createdAt: -1 });
+
+const Report = mongoose.model("Report", reportSchema);
+
+module.exports = Report;
