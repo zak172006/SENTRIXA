@@ -113,3 +113,101 @@ footer {
         font-size: 16px;
     }
 }
+
+/* SERVICES SECTION */
+
+.services {
+    padding: 80px 8%;
+    text-align: center;
+    background: #0b192b;
+}
+
+.services h2,
+.about h2,
+.contact h2 {
+    font-size: 35px;
+    color: #00d9ff;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    color: #c5d2e0;
+    margin-bottom: 45px;
+    line-height: 1.8;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #10243b;
+    padding: 35px 25px;
+    border: 1px solid #193b55;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #00d9ff;
+}
+
+.service-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #c5d2e0;
+    line-height: 1.8;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.about p,
+.contact p {
+    color: #c5d2e0;
+    font-size: 18px;
+    line-height: 2;
+    max-width: 750px;
+    margin: auto;
+}
+
+/* CONTACT SECTION */
+
+.contact {
+    padding: 70px 10%;
+    text-align: center;
+    background: #0b192b;
+}
+
+.contact p {
+    margin-top: 15px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .services h2,
+    .about h2,
+    .contact h2 {
+        font-size: 28px;
+    }
+}
