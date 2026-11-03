@@ -1,0 +1,37 @@
+{
+  "vulnerabilities": [
+    {
+      "id": 1,
+      "title": "SQL Injection",
+      "category": "Injection",
+      "severity": "critical",
+      "description": "Potential SQL injection vulnerability detected.",
+      "status": "open",
+      "affectedAsset": "Web Application",
+      "recommendation": "Use parameterized queries and validate user input.",
+      "createdAt": "2026-11-03T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Cross-Site Scripting",
+      "category": "XSS",
+      "severity": "high",
+      "description": "Potential cross-site scripting vulnerability.",
+      "status": "investigating",
+      "affectedAsset": "Frontend",
+      "recommendation": "Sanitize and encode untrusted user input.",
+      "createdAt": "2026-11-03T13:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Weak Password Policy",
+      "category": "Authentication",
+      "severity": "medium",
+      "description": "Password policy may not provide sufficient protection.",
+      "status": "open",
+      "affectedAsset": "Authentication System",
+      "recommendation": "Enforce strong password requirements.",
+      "createdAt": "2026-11-03T14:00:00Z"
+    }
+  ]
+}
