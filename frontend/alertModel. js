@@ -1,0 +1,92 @@
+// SENTRIXA - Security Alert Database Model
+
+const mongoose = require("mongoose");
+
+const alertSchema = new mongoose.Schema({
+
+    title: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 200
+    },
+
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
+    severity: {
+        type: String,
+        enum: [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info"
+        ],
+        default: "medium"
+    },
+
+    status: {
+        type: String,
+        enum: [
+            "new",
+            "acknowledged",
+            "investigating",
+            "resolved",
+            "dismissed"
+        ],
+        default: "new"
+    },
+
+    category: {
+        type: String,
+        default: "general",
+        trim: true
+    },
+
+    source: {
+        type: String,
+        default: "system"
+    },
+
+    affectedAsset: {
+        type: String,
+        default: null
+    },
+
+    assignedTo: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: null
+    },
+
+    detectedAt: {
+        type: Date,
+        default: Date.now
+    },
+
+    resolvedAt: {
+        type: Date,
+        default: null
+    },
+
+    metadata: {
+        type: mongoose.Schema.Types.Mixed,
+        default: {}
+    }
+
+}, {
+    timestamps: true
+});
+
+// Improve database search performance
+alertSchema.index({ severity: 1, status: 1 });
+alertSchema.index({ detectedAt: -1 });
+alertSchema.index({ assignedTo: 1 });
+
+const Alert = mongoose.model("Alert", alertSchema);
+
+module.exports = Alert;
