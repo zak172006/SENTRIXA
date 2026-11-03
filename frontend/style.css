@@ -1,0 +1,115 @@
+
+/* SENTRIXA - Main Design */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: white;
+    direction: rtl;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #0b192b;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00d9ff;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: #00d9ff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #c5d2e0;
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.hero button {
+    margin-top: 30px;
+    padding: 15px 35px;
+    background: #00d9ff;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: white;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #0b192b;
+    color: #8da4bd;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
