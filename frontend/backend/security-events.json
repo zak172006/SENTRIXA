@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "eventType": "login_success",
+      "category": "authentication",
+      "severity": "info",
+      "description": "User logged in successfully.",
+      "userId": 1,
+      "ipAddress": "192.0.2.10",
+      "status": "recorded",
+      "createdAt": "2026-11-03T09:00:00Z"
+    },
+    {
+      "id": 2,
+      "eventType": "failed_login",
+      "category": "authentication",
+      "severity": "warning",
+      "description": "Unsuccessful login attempt detected.",
+      "userId": null,
+      "ipAddress": "192.0.2.20",
+      "status": "recorded",
+      "createdAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "eventType": "permission_changed",
+      "category": "administration",
+      "severity": "info",
+      "description": "A user permission was modified.",
+      "userId": 1,
+      "ipAddress": "192.0.2.30",
+      "status": "recorded",
+      "createdAt": "2026-11-03T11:00:00Z"
+    }
+  ]
+}
