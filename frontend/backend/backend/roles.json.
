@@ -1,0 +1,43 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "name": "super_admin",
+      "description": "Full system access",
+      "permissions": ["*"]
+    },
+    {
+      "id": 2,
+      "name": "admin",
+      "description": "Manage users and system settings",
+      "permissions": [
+        "users.read",
+        "users.create",
+        "users.update",
+        "users.delete",
+        "reports.read",
+        "settings.read"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "security_analyst",
+      "description": "Monitor security events and analyze threats",
+      "permissions": [
+        "alerts.read",
+        "incidents.read",
+        "incidents.update",
+        "reports.read"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "viewer",
+      "description": "Read-only access",
+      "permissions": [
+        "dashboard.read",
+        "reports.read"
+      ]
+    }
+  ]
+}
