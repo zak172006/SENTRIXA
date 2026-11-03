@@ -1,0 +1,115 @@
+// SENTRIXA - Device Database Model
+
+const mongoose = require("mongoose");
+
+const deviceSchema = new mongoose.Schema({
+
+    name: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 150
+    },
+
+    deviceType: {
+        type: String,
+        enum: [
+            "computer",
+            "laptop",
+            "mobile",
+            "server",
+            "router",
+            "firewall",
+            "other"
+        ],
+        default: "other"
+    },
+
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: null
+    },
+
+    ipAddress: {
+        type: String,
+        default: null,
+        trim: true
+    },
+
+    macAddress: {
+        type: String,
+        default: null,
+        trim: true
+    },
+
+    operatingSystem: {
+        type: String,
+        default: null
+    },
+
+    hostname: {
+        type: String,
+        default: null
+    },
+
+    status: {
+        type: String,
+        enum: [
+            "online",
+            "offline",
+            "warning",
+            "compromised",
+            "maintenance"
+        ],
+        default: "offline"
+    },
+
+    riskLevel: {
+        type: String,
+        enum: [
+            "critical",
+            "high",
+            "medium",
+            "low"
+        ],
+        default: "low"
+    },
+
+    lastSeen: {
+        type: Date,
+        default: null
+    },
+
+    lastScanAt: {
+        type: Date,
+        default: null
+    },
+
+    notes: {
+        type: String,
+        default: null
+    },
+
+    metadata: {
+        type: mongoose.Schema.Types.Mixed,
+        default: {}
+    }
+
+}, {
+    timestamps: true
+});
+
+// Database indexes
+
+deviceSchema.index({ owner: 1 });
+
+deviceSchema.index({ status: 1 });
+
+deviceSchema.index({ riskLevel: 1 });
+
+deviceSchema.index({ ipAddress: 1 });
+
+const Device = mongoose.model("Device", deviceSchema);
+
+module.exports = Device;
