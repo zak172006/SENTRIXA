@@ -1,14 +1,41 @@
 
-// SENTRIXA JavaScript
+document.addEventListener("DOMContentLoaded", function () {
 
-console.log("SENTRIXA Website Started Successfully!");
+    // Mobile Menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
 
-const servicesButton = document.querySelector(".hero button");
-
-servicesButton.addEventListener("click", function () {
-    document.querySelector("#services").scrollIntoView({
-        behavior: "smooth"
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
     });
-});
 
-console.log("SENTRIXA Services Loaded Successfully!");
+    // Close menu after clicking a link
+    document.querySelectorAll("#navMenu a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+        });
+    });
+
+    // Automatic Copyright Year
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    // Smooth navigation
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    console.log("SENTRIXA Website Loaded Successfully");
+});
