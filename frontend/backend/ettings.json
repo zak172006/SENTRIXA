@@ -1,0 +1,26 @@
+{
+  "application": {
+    "name": "SENTRIXA",
+    "version": "1.0.0",
+    "environment": "development",
+    "description": "Cybersecurity Management Platform"
+  },
+  "security": {
+    "twoFactorEnabled": true,
+    "passwordMinLength": 8,
+    "maxLoginAttempts": 5,
+    "sessionTimeout": 30,
+    "accountLockEnabled": true
+  },
+  "notifications": {
+    "emailEnabled": true,
+    "securityAlerts": true,
+    "loginNotifications": true
+  },
+  "system": {
+    "maintenanceMode": false,
+    "debugMode": true,
+    "language": "en",
+    "timezone": "Africa/Cairo"
+  }
+}
