@@ -2,111 +2,150 @@
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SENTRIXA - حلول متطورة للأمن السيبراني وحماية الأنظمة والبيانات.">
     <title>SENTRIXA | Cyber Security</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="frontend/style.css">
 </head>
-
 <body>
 
-    <header>
-        <div class="logo">SENTRIXA</div>
+<header class="header">
+    <a href="#" class="logo">SENTRIXA<span>.</span></a>
 
-        <nav>
-            <a href="#">الرئيسية</a>
-            <a href="#services">خدماتنا</a>
-            <a href="#about">من نحن</a>
-            <a href="#contact">تواصل معنا</a>
-        </nav>
-    </header>
+    <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
 
-    <section class="hero">
-        <h1>مرحباً بك في SENTRIXA</h1>
+    <nav id="navMenu">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#about">من نحن</a>
+        <a href="#features">مميزاتنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
 
+    <a href="#contact" class="header-btn">ابدأ الآن</a>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">NEXT GENERATION CYBER SECURITY</span>
+        <h1>عالمك الرقمي<br>يستحق <span>حماية أقوى</span></h1>
         <p>
-            نقدم حلولاً متطورة للأمن السيبراني
-            وحماية الأنظمة والبيانات من التهديدات الرقمية،
-            لمساعدتك على بناء عالم رقمي أكثر أماناً.
+            في SENTRIXA نقدم حلول الأمن السيبراني
+            لمساعدتك على حماية مواقعك وأنظمتك وبياناتك
+            من التهديدات الرقمية.
         </p>
-
-        <button>اكتشف خدماتنا</button>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-
-        <h2>خدماتنا الأمنية</h2>
-
-        <p class="section-description">
-            حلول متكاملة لحماية أعمالك وأنظمتك الرقمية.
-        </p>
-
-        <div class="services-container">
-
-            <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>حماية المواقع</h3>
-                <p>
-                    المساعدة في حماية المواقع الإلكترونية
-                    من الثغرات والهجمات الرقمية.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🔍</div>
-                <h3>اختبار الاختراق</h3>
-                <p>
-                    فحص الأنظمة بشكل آمن لاكتشاف نقاط
-                    الضعف قبل استغلالها.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🔐</div>
-                <h3>حماية البيانات</h3>
-                <p>
-                    تطبيق إجراءات تساعد على حماية
-                    المعلومات والبيانات الحساسة.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📡</div>
-                <h3>مراقبة التهديدات</h3>
-                <p>
-                    متابعة الأنشطة المشبوهة والمساعدة
-                    في اكتشاف التهديدات الرقمية.
-                </p>
-            </div>
-
+        <div class="hero-actions">
+            <a href="#services" class="primary-btn">اكتشف خدماتنا</a>
+            <a href="#about" class="secondary-btn">تعرف علينا</a>
         </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>من نحن؟</h2>
+    <div class="hero-visual">
+        <div class="shield">🛡️</div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="security-label">SYSTEM PROTECTED</div>
+    </div>
+</section>
+
+<section class="stats">
+    <div><h2>24/7</h2><p>مراقبة أمنية</p></div>
+    <div><h2>360°</h2><p>حماية متكاملة</p></div>
+    <div><h2>100%</h2><p>اهتمام بأمان بياناتك</p></div>
+</section>
+
+<section class="section services" id="services">
+    <span class="tag">OUR SERVICES</span>
+    <h2>خدماتنا <span>الأمنية</span></h2>
+    <p class="section-text">حلول تقنية تساعدك على بناء بيئة رقمية أكثر أماناً.</p>
+
+    <div class="cards">
+        <article class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>حماية المواقع</h3>
+            <p>تحليل إعدادات المواقع واكتشاف مؤشرات الضعف وتحسين مستوى الحماية.</p>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>الفحص الأمني</h3>
+            <p>فحص أمني مصرح به لتحديد المخاطر ونقاط الضعف المحتملة.</p>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">🔐</div>
+            <h3>حماية البيانات</h3>
+            <p>مساعدة المؤسسات على حماية المعلومات وتقليل مخاطر تسريب البيانات.</p>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">📡</div>
+            <h3>مراقبة التهديدات</h3>
+            <p>متابعة التنبيهات والمؤشرات الأمنية للمساعدة في اكتشاف الأنشطة المشبوهة.</p>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>التقارير الأمنية</h3>
+            <p>عرض نتائج الفحص والمخاطر والتوصيات في تقارير واضحة.</p>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>التوعية الأمنية</h3>
+            <p>محتوى يساعد المستخدمين على فهم التهديدات الرقمية وتجنبها.</p>
+        </article>
+    </div>
+</section>
+
+<section class="about section" id="about">
+    <div>
+        <span class="tag">ABOUT SENTRIXA</span>
+        <h2>الأمان الرقمي<br><span>يبدأ من هنا</span></h2>
         <p>
-            SENTRIXA هي علامة متخصصة في تقديم مفاهيم
-            وحلول الأمن السيبراني، وتهدف إلى مساعدة
-            المؤسسات والأفراد على تعزيز أمنهم الرقمي.
+            SENTRIXA منصة تهدف إلى تقديم خدمات وأدوات
+            تساعد الأفراد والشركات على فهم المخاطر الأمنية
+            وتحسين حماية أصولهم الرقمية.
         </p>
-    </section>
+        <a href="#contact" class="primary-btn">تواصل معنا</a>
+    </div>
+    <div class="about-box">
+        <div class="big-lock">🔒</div>
+        <h3>YOUR DIGITAL WORLD</h3>
+        <p>SECURE BY DESIGN</p>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>تواصل معنا</h2>
-        <p>هل تحتاج إلى تعزيز أمنك الرقمي؟</p>
-        <p>Email: info@sentrixa.com</p>
-    </section>
+<section class="section features" id="features">
+    <span class="tag">WHY SENTRIXA</span>
+    <h2>لماذا تختار <span>SENTRIXA؟</span></h2>
+    <div class="feature-list">
+        <div>✓ واجهة سهلة الاستخدام</div>
+        <div>✓ تقارير أمنية منظمة</div>
+        <div>✓ الاهتمام بخصوصية البيانات</div>
+        <div>✓ تصميم متوافق مع الأجهزة</div>
+        <div>✓ حلول قابلة للتطوير</div>
+        <div>✓ توعية ومتابعة أمنية</div>
+    </div>
+</section>
 
-    <footer>
-        جميع الحقوق محفوظة © 2026 SENTRIXA
-    </footer>
+<section class="contact section" id="contact">
+    <span class="tag">CONTACT US</span>
+    <h2>هل أنت مستعد لحماية <span>عالمك الرقمي؟</span></h2>
+    <p>تواصل معنا لمعرفة المزيد عن خدمات SENTRIXA.</p>
+    <a href="mailto:info@sentrixa.com" class="primary-btn">راسلنا الآن</a>
+</section>
+</main>
 
-    <script src="js/script.js"></script>
+<footer>
+    <a href="#home" class="logo">SENTRIXA<span>.</span></a>
+    <p>جميع الحقوق محفوظة © <span id="year"></span> SENTRIXA</p>
+    <p>Cyber Security | Digital Protection</p>
+</footer>
 
+<script src="frontend/script.js"></script>
 </body>
 </html>
