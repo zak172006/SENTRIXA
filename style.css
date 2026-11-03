@@ -593,3 +593,247 @@ footer p {
         transition-duration: .01ms !important;
     }
 }
+
+/* ==========================================
+   SENTRIXA - Advanced Visual Enhancements
+========================================== */
+
+/* 1. Header Scroll Effect */
+
+.header {
+    transition:
+        background .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.header.scrolled {
+    background: rgba(3, 8, 17, .98);
+    box-shadow: 0 8px 30px rgba(0, 229, 255, .10);
+    border-bottom-color: rgba(0, 229, 255, .35);
+}
+
+/* 2. Navigation Improvements */
+
+.header nav a {
+    position: relative;
+    padding: 5px 0;
+}
+
+.header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cyan);
+    transition: width .3s ease;
+}
+
+.header nav a:hover::after {
+    width: 100%;
+}
+
+/* 3. Menu Button */
+
+.menu-toggle {
+    transition: transform .3s ease, color .3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.12);
+    color: white;
+}
+
+/* 4. Hero Improvements */
+
+.hero-content h1 span {
+    text-shadow: 0 0 25px rgba(0, 229, 255, .25);
+}
+
+.hero-visual {
+    isolation: isolate;
+}
+
+.shield {
+    user-select: none;
+}
+
+/* 5. Service Cards */
+
+.service-card {
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-12px);
+}
+
+.service-icon {
+    display: inline-block;
+    transition: transform .35s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* 6. Statistics */
+
+.stats > div {
+    transition: transform .3s ease;
+}
+
+.stats > div:hover {
+    transform: translateY(-5px);
+}
+
+/* 7. About Section */
+
+.about-box {
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .3s ease;
+}
+
+.about-box:hover {
+    box-shadow: 0 0 45px rgba(0, 229, 255, .24);
+}
+
+.big-lock {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* 8. Feature Cards */
+
+.feature-list div {
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.feature-list div:hover {
+    border-color: var(--cyan);
+    background: #102a43;
+}
+
+/* 9. Buttons */
+
+.primary-btn,
+.secondary-btn,
+.header-btn {
+    cursor: pointer;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.header-btn:focus-visible,
+.menu-toggle:focus-visible,
+.header nav a:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 5px;
+}
+
+/* 10. Footer */
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: color .3s ease;
+}
+
+footer .logo:hover {
+    color: var(--cyan);
+}
+
+/* 11. Selection */
+
+::selection {
+    background: var(--cyan);
+    color: var(--bg);
+}
+
+/* 12. Mobile Navigation */
+
+@media (max-width: 650px) {
+
+    .header nav {
+        background: rgba(10, 22, 40, .98);
+        border-top: 1px solid var(--border);
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .header nav a {
+        padding: 8px 5px;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .header nav a:last-child {
+        border-bottom: none;
+    }
+
+    .header nav a::after {
+        display: none;
+    }
+
+    .hero-visual {
+        max-width: 100%;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+}
+
+/* 13. Small Screens */
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+/* 14. Reduced Motion Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+}
