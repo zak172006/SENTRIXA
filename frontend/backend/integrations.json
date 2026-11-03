@@ -1,0 +1,34 @@
+{
+  "integrations": [
+    {
+      "id": 1,
+      "name": "Email Notifications",
+      "key": "email",
+      "category": "notifications",
+      "provider": "SMTP",
+      "enabled": true,
+      "status": "configured",
+      "description": "Send security alerts through email."
+    },
+    {
+      "id": 2,
+      "name": "Telegram Notifications",
+      "key": "telegram",
+      "category": "notifications",
+      "provider": "Telegram Bot API",
+      "enabled": false,
+      "status": "not_configured",
+      "description": "Send security notifications through Telegram."
+    },
+    {
+      "id": 3,
+      "name": "Cloud Storage",
+      "key": "cloud_storage",
+      "category": "storage",
+      "provider": "Cloud Service",
+      "enabled": false,
+      "status": "not_configured",
+      "description": "Store security reports and backups."
+    }
+  ]
+}
