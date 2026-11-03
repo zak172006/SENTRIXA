@@ -1,0 +1,31 @@
+{
+  "alerts": [
+    {
+      "id": 1,
+      "title": "Multiple Failed Login Attempts",
+      "description": "Multiple unsuccessful login attempts detected.",
+      "severity": "high",
+      "status": "open",
+      "source": "authentication",
+      "createdAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Suspicious Login Activity",
+      "description": "Login detected from an unfamiliar location.",
+      "severity": "medium",
+      "status": "investigating",
+      "source": "login-monitor",
+      "createdAt": "2026-11-03T11:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "System Security Check",
+      "description": "Routine security check completed successfully.",
+      "severity": "low",
+      "status": "resolved",
+      "source": "system",
+      "createdAt": "2026-11-03T12:00:00Z"
+    }
+  ]
+}
