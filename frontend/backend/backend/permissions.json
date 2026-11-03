@@ -1,0 +1,54 @@
+{
+  "permissions": [
+    {
+      "id": 1,
+      "key": "dashboard.read",
+      "description": "View dashboard"
+    },
+    {
+      "id": 2,
+      "key": "users.read",
+      "description": "View users"
+    },
+    {
+      "id": 3,
+      "key": "users.create",
+      "description": "Create users"
+    },
+    {
+      "id": 4,
+      "key": "users.update",
+      "description": "Update users"
+    },
+    {
+      "id": 5,
+      "key": "users.delete",
+      "description": "Delete users"
+    },
+    {
+      "id": 6,
+      "key": "alerts.read",
+      "description": "View security alerts"
+    },
+    {
+      "id": 7,
+      "key": "incidents.read",
+      "description": "View security incidents"
+    },
+    {
+      "id": 8,
+      "key": "incidents.update",
+      "description": "Update security incidents"
+    },
+    {
+      "id": 9,
+      "key": "reports.read",
+      "description": "View reports"
+    },
+    {
+      "id": 10,
+      "key": "settings.read",
+      "description": "View system settings"
+    }
+  ]
+}
