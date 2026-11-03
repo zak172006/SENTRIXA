@@ -1,0 +1,34 @@
+{
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Security Alert",
+      "message": "A suspicious login attempt was detected.",
+      "type": "security",
+      "priority": "high",
+      "isRead": false,
+      "createdAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Scan Completed",
+      "message": "Website security scan has been completed.",
+      "type": "scan",
+      "priority": "medium",
+      "isRead": false,
+      "createdAt": "2026-11-03T11:00:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "System Update",
+      "message": "SENTRIXA system settings were updated.",
+      "type": "system",
+      "priority": "low",
+      "isRead": true,
+      "createdAt": "2026-11-03T12:00:00Z"
+    }
+  ]
+}
