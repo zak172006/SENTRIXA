@@ -1,81 +1,205 @@
-// SENTRIXA - Main Frontend JavaScript
+
+// ==========================================
+// SENTRIXA - Advanced Main Frontend JavaScript
+// ==========================================
+
+"use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Mobile Navigation
+    // ======================================
+    // 1. Mobile Navigation
+    // ======================================
+
     const menuToggle = document.querySelector(".menu-toggle");
     const navigation = document.querySelector(".header nav");
 
     if (menuToggle && navigation) {
 
+        const openMenu = () => {
+            navigation.classList.add("active");
+            menuToggle.setAttribute("aria-expanded", "true");
+            menuToggle.innerHTML = "✕";
+            document.body.classList.add("menu-open");
+        };
+
+        const closeMenu = () => {
+            navigation.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.innerHTML = "☰";
+            document.body.classList.remove("menu-open");
+        };
+
+        const toggleMenu = () => {
+            const isOpen = navigation.classList.contains("active");
+
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        };
+
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Toggle navigation");
+        menuToggle.setAttribute("type", "button");
 
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", toggleMenu);
 
-            const isOpen = navigation.classList.toggle("active");
+        // Close after clicking a navigation link
+        navigation.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
+        // Close when clicking outside
+        document.addEventListener("click", event => {
 
-            menuToggle.innerHTML = isOpen ? "✕" : "☰";
+            const isOpen = navigation.classList.contains("active");
+
+            if (
+                isOpen &&
+                !navigation.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+                closeMenu();
+            }
 
         });
 
-        // Close Menu After Clicking a Link
-        navigation.querySelectorAll("a").forEach(link => {
+        // Close with Escape key
+        document.addEventListener("keydown", event => {
 
-            link.addEventListener("click", () => {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
 
-                navigation.classList.remove("active");
+        });
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+        // Close menu when screen becomes desktop
+        window.addEventListener("resize", () => {
 
-                menuToggle.innerHTML = "☰";
-
-            });
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
 
         });
 
     }
 
-    // Smooth Scroll
+    // ======================================
+    // 2. Smooth Scrolling
+    // ======================================
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     document.querySelectorAll('a[href^="#"]').forEach(link => {
 
         link.addEventListener("click", event => {
 
             const targetId = link.getAttribute("href");
 
-            if (targetId === "#") return;
+            if (!targetId || targetId === "#") return;
 
-            const target = document.querySelector(targetId);
+            let target;
 
-            if (target) {
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
+            try {
+                target = document.querySelector(targetId);
+            } catch {
+                return;
             }
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: prefersReducedMotion ? "auto" : "smooth",
+                block: "start"
+            });
 
         });
 
     });
 
-    // Current Year
+    // ======================================
+    // 3. Automatic Current Year
+    // ======================================
+
     const yearElement = document.querySelector("#current-year");
 
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
 
-    console.log("SENTRIXA Frontend Initialized Successfully");
+    // ======================================
+    // 4. Header Scroll Effect
+    // ======================================
+
+    const header = document.querySelector(".header");
+
+    if (header) {
+
+        const updateHeader = () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+        };
+
+        updateHeader();
+
+        window.addEventListener("scroll", updateHeader, {
+            passive: true
+        });
+
+    }
+
+    // ======================================
+    // 5. Back To Top Button
+    // ======================================
+
+    const backToTop = document.querySelector("#back-to-top");
+
+    if (backToTop) {
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
+
+        });
+
+        window.addEventListener("scroll", () => {
+
+            backToTop.classList.toggle(
+                "visible",
+                window.scrollY > 400
+            );
+
+        }, { passive: true });
+
+    }
+
+    // ======================================
+    // 6. External Links Security
+    // ======================================
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+
+        link.setAttribute("rel", "noopener noreferrer");
+
+    });
+
+    // ======================================
+    // 7. Application Initialization
+    // ======================================
+
+    console.log(
+        "%c SENTRIXA ",
+        "background:#00d9ff;color:#07111f;font-size:18px;font-weight:bold;padding:8px;"
+    );
+
+    console.log("Frontend Initialized Successfully");
 
 });
