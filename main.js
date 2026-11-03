@@ -1,84 +1,110 @@
 
-// ==========================================
-// SENTRIXA - Advanced Main Frontend JavaScript
-// ==========================================
 
 "use strict";
+
+// ==========================================
+// SENTRIXA - Professional Frontend Controller
+// ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // ======================================
-    // 1. Mobile Navigation
+    // 1. Global Elements
     // ======================================
 
+    const header = document.querySelector(".header");
     const menuToggle = document.querySelector(".menu-toggle");
     const navigation = document.querySelector(".header nav");
+    const yearElement = document.querySelector("#current-year");
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // ======================================
+    // 2. Mobile Navigation
+    // ======================================
 
     if (menuToggle && navigation) {
 
         const openMenu = () => {
+
             navigation.classList.add("active");
+
             menuToggle.setAttribute("aria-expanded", "true");
-            menuToggle.innerHTML = "✕";
+            menuToggle.setAttribute("aria-label", "إغلاق القائمة");
+            menuToggle.textContent = "✕";
+
             document.body.classList.add("menu-open");
+
         };
 
         const closeMenu = () => {
+
             navigation.classList.remove("active");
+
             menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.innerHTML = "☰";
+            menuToggle.setAttribute("aria-label", "فتح القائمة");
+            menuToggle.textContent = "☰";
+
             document.body.classList.remove("menu-open");
+
         };
 
-        const toggleMenu = () => {
+        menuToggle.addEventListener("click", () => {
+
             const isOpen = navigation.classList.contains("active");
 
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        };
+            isOpen ? closeMenu() : openMenu();
 
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Toggle navigation");
-        menuToggle.setAttribute("type", "button");
+        });
 
-        menuToggle.addEventListener("click", toggleMenu);
+        // Close after clicking a link
 
-        // Close after clicking a navigation link
         navigation.querySelectorAll("a").forEach(link => {
+
             link.addEventListener("click", closeMenu);
+
         });
 
         // Close when clicking outside
+
         document.addEventListener("click", event => {
 
-            const isOpen = navigation.classList.contains("active");
+            if (!navigation.classList.contains("active")) return;
 
             if (
-                isOpen &&
                 !navigation.contains(event.target) &&
                 !menuToggle.contains(event.target)
             ) {
+
                 closeMenu();
+
             }
 
         });
 
-        // Close with Escape key
+        // Close using Escape
+
         document.addEventListener("keydown", event => {
 
-            if (event.key === "Escape") {
+            if (
+                event.key === "Escape" &&
+                navigation.classList.contains("active")
+            ) {
+
                 closeMenu();
+                menuToggle.focus();
+
             }
 
         });
 
-        // Close menu when screen becomes desktop
+        // Match CSS mobile breakpoint
+
         window.addEventListener("resize", () => {
 
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 650) {
                 closeMenu();
             }
 
@@ -87,12 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ======================================
-    // 2. Smooth Scrolling
+    // 3. Smooth Scrolling
     // ======================================
-
-    const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
 
@@ -105,9 +127,14 @@ document.addEventListener("DOMContentLoaded", () => {
             let target;
 
             try {
+
                 target = document.querySelector(targetId);
-            } catch {
+
+            } catch (error) {
+
+                console.warn("Invalid navigation target:", targetId);
                 return;
+
             }
 
             if (!target) return;
@@ -115,8 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
 
             target.scrollIntoView({
+
                 behavior: prefersReducedMotion ? "auto" : "smooth",
                 block: "start"
+
             });
 
         });
@@ -124,25 +153,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ======================================
-    // 3. Automatic Current Year
+    // 4. Automatic Current Year
     // ======================================
 
-    const yearElement = document.querySelector("#current-year");
-
     if (yearElement) {
+
         yearElement.textContent = new Date().getFullYear();
+
     }
 
     // ======================================
-    // 4. Header Scroll Effect
+    // 5. Header Scroll Effect
     // ======================================
-
-    const header = document.querySelector(".header");
 
     if (header) {
 
         const updateHeader = () => {
-            header.classList.toggle("scrolled", window.scrollY > 50);
+
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY > 50
+            );
+
         };
 
         updateHeader();
@@ -154,52 +186,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ======================================
-    // 5. Back To Top Button
-    // ======================================
-
-    const backToTop = document.querySelector("#back-to-top");
-
-    if (backToTop) {
-
-        backToTop.addEventListener("click", () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: prefersReducedMotion ? "auto" : "smooth"
-            });
-
-        });
-
-        window.addEventListener("scroll", () => {
-
-            backToTop.classList.toggle(
-                "visible",
-                window.scrollY > 400
-            );
-
-        }, { passive: true });
-
-    }
-
-    // ======================================
     // 6. External Links Security
     // ======================================
 
     document.querySelectorAll('a[target="_blank"]').forEach(link => {
 
-        link.setAttribute("rel", "noopener noreferrer");
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
 
     });
 
     // ======================================
-    // 7. Application Initialization
+    // 7. Keyboard Accessibility
+    // ======================================
+
+    document.querySelectorAll("button").forEach(button => {
+
+        if (!button.hasAttribute("type")) {
+
+            button.setAttribute("type", "button");
+
+        }
+
+    });
+
+    // ======================================
+    // 8. Application Initialization
     // ======================================
 
     console.log(
         "%c SENTRIXA ",
-        "background:#00d9ff;color:#07111f;font-size:18px;font-weight:bold;padding:8px;"
+        "background:#00e5ff;color:#050b16;font-size:20px;font-weight:bold;padding:10px;"
     );
 
-    console.log("Frontend Initialized Successfully");
+    console.log("Cyber Security Frontend Initialized Successfully");
+
+    console.log("Navigation System: Ready");
+    console.log("Smooth Scrolling: Ready");
+    console.log("Responsive Layout: Ready");
 
 });
