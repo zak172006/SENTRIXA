@@ -901,3 +901,18 @@ footer .logo:hover {
     border-radius: 12px;
     color: #ffffff;
 }
+.search-section {
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.search-section h2 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.search-section p {
+    color: #a9bbcd;
+    margin-bottom: 20px;
+} 
