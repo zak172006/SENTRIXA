@@ -1,6 +1,7 @@
-/* =====================================
-   SENTRIXA - Professional Cyber Design
-===================================== */
+
+/* ==========================================
+   SENTRIXA - PROFESSIONAL CYBER SECURITY
+========================================== */
 
 :root {
     --bg: #050b16;
@@ -13,6 +14,8 @@
     --border: rgba(0,229,255,.18);
     --glow: 0 0 35px rgba(0,229,255,.16);
 }
+
+/* GLOBAL */
 
 * {
     margin: 0;
@@ -56,6 +59,13 @@ button {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: .3s;
+}
+
+.header.scrolled {
+    background: rgba(3,8,17,.98);
+    box-shadow: 0 8px 30px rgba(0,229,255,.10);
+    border-bottom-color: rgba(0,229,255,.35);
 }
 
 .logo {
@@ -80,10 +90,27 @@ h2 span {
     color: var(--muted);
     transition: .3s;
     font-size: 14px;
+    position: relative;
+    padding: 5px 0;
 }
 
 .header nav a:hover {
     color: var(--cyan);
+}
+
+.header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cyan);
+    transition: .3s;
+}
+
+.header nav a:hover::after {
+    width: 100%;
 }
 
 .header-btn,
@@ -111,6 +138,117 @@ h2 span {
     border: none;
     font-size: 27px;
     cursor: pointer;
+    transition: .3s;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.12);
+    color: white;
+}
+
+/* SEARCH SECTION */
+
+.search-section {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(ellipse at center,rgba(0,140,190,.12),transparent 70%),
+        var(--bg);
+}
+
+.search-section h2 {
+    color: var(--white);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.search-section > p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.site-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 7px;
+    background: #10243a;
+    border: 1px solid rgba(0,229,255,.35);
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.site-search:focus-within {
+    border-color: var(--cyan);
+    box-shadow: 0 0 18px rgba(0,229,255,.2);
+}
+
+.site-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+.site-search input::placeholder {
+    color: var(--muted);
+}
+
+.site-search button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    background: var(--cyan);
+    color: var(--bg);
+    font-size: 27px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.site-search button:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+.search-results {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto 20px;
+    padding: 12px;
+    background: #10243a;
+    border: 1px solid rgba(0,229,255,.4);
+    border-radius: 12px;
+    color: white;
+    text-align: right;
+}
+
+.search-results[hidden] {
+    display: none !important;
+}
+
+.search-result-item {
+    display: block;
+    padding: 14px;
+    margin: 5px 0;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.search-result-item:hover {
+    background: rgba(0,229,255,.12);
+    color: var(--cyan);
 }
 
 /* HERO */
@@ -198,6 +336,7 @@ h2 span {
     align-items: center;
     position: relative;
     flex-shrink: 0;
+    isolation: isolate;
 }
 
 .shield {
@@ -249,6 +388,14 @@ h2 span {
     border-bottom: 1px solid var(--border);
 }
 
+.stats > div {
+    transition: .3s;
+}
+
+.stats > div:hover {
+    transform: translateY(-5px);
+}
+
 .stats h2 {
     color: var(--cyan);
     font-size: 38px;
@@ -292,6 +439,7 @@ h2 span {
     transition: .35s;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 100px;
 }
 
 .service-card::before {
@@ -316,8 +464,14 @@ h2 span {
 }
 
 .service-icon {
+    display: inline-block;
     font-size: 45px;
     margin-bottom: 18px;
+    transition: .35s;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.15) rotate(-5deg);
 }
 
 .service-card h3 {
@@ -368,12 +522,20 @@ h2 span {
     align-items: center;
     justify-content: center;
     box-shadow: var(--glow);
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.about-box:hover {
+    box-shadow: 0 0 45px rgba(0,229,255,.24);
 }
 
 .big-lock {
     font-size: 90px;
     margin-bottom: 18px;
     filter: drop-shadow(0 0 20px rgba(0,229,255,.4));
+    animation: float 4s ease-in-out infinite;
 }
 
 .about-box h3 {
@@ -402,6 +564,8 @@ h2 span {
 
 .feature-list div:hover {
     transform: translateX(-5px);
+    border-color: var(--cyan);
+    background: #102a43;
     box-shadow: var(--glow);
 }
 
@@ -425,6 +589,15 @@ footer {
     background: #030811;
     text-align: center;
     border-top: 1px solid var(--border);
+}
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+footer .logo:hover {
+    color: var(--cyan);
 }
 
 footer p {
@@ -482,7 +655,6 @@ footer p {
     .hero-visual {
         transform: scale(.85);
     }
-
 }
 
 /* MOBILE */
@@ -510,12 +682,41 @@ footer p {
         display: none;
         width: 100%;
         flex-direction: column;
-        padding: 20px 0;
+        padding: 20px;
         gap: 15px;
+        background: rgba(10,22,40,.98);
+        border-top: 1px solid var(--border);
+        margin-top: 15px;
+        border-radius: 10px;
     }
 
     .header nav.active {
         display: flex;
+    }
+
+    .header nav a {
+        padding: 8px 5px;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .header nav a:last-child {
+        border-bottom: none;
+    }
+
+    .header nav a::after {
+        display: none;
+    }
+
+    .search-section {
+        padding: 30px 6%;
+    }
+
+    .search-section h2 {
+        font-size: 23px;
+    }
+
+    .search-section > p {
+        font-size: 14px;
     }
 
     .hero {
@@ -580,224 +781,12 @@ footer p {
         padding: 30px 5%;
     }
 
-}
-
-/* ACCESSIBILITY */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-    }
-}
-
-/* ==========================================
-   SENTRIXA - Advanced Visual Enhancements
-========================================== */
-
-/* 1. Header Scroll Effect */
-
-.header {
-    transition:
-        background .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-}
-
-.header.scrolled {
-    background: rgba(3, 8, 17, .98);
-    box-shadow: 0 8px 30px rgba(0, 229, 255, .10);
-    border-bottom-color: rgba(0, 229, 255, .35);
-}
-
-/* 2. Navigation Improvements */
-
-.header nav a {
-    position: relative;
-    padding: 5px 0;
-}
-
-.header nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background: var(--cyan);
-    transition: width .3s ease;
-}
-
-.header nav a:hover::after {
-    width: 100%;
-}
-
-/* 3. Menu Button */
-
-.menu-toggle {
-    transition: transform .3s ease, color .3s ease;
-}
-
-.menu-toggle:hover {
-    transform: scale(1.12);
-    color: white;
-}
-
-/* 4. Hero Improvements */
-
-.hero-content h1 span {
-    text-shadow: 0 0 25px rgba(0, 229, 255, .25);
-}
-
-.hero-visual {
-    isolation: isolate;
-}
-
-.shield {
-    user-select: none;
-}
-
-/* 5. Service Cards */
-
-.service-card {
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-12px);
-}
-
-.service-icon {
-    display: inline-block;
-    transition: transform .35s ease;
-}
-
-.service-card:hover .service-icon {
-    transform: scale(1.15) rotate(-5deg);
-}
-
-/* 6. Statistics */
-
-.stats > div {
-    transition: transform .3s ease;
-}
-
-.stats > div:hover {
-    transform: translateY(-5px);
-}
-
-/* 7. About Section */
-
-.about-box {
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow .3s ease;
-}
-
-.about-box:hover {
-    box-shadow: 0 0 45px rgba(0, 229, 255, .24);
-}
-
-.big-lock {
-    animation: float 4s ease-in-out infinite;
-}
-
-/* 8. Feature Cards */
-
-.feature-list div {
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease;
-}
-
-.feature-list div:hover {
-    border-color: var(--cyan);
-    background: #102a43;
-}
-
-/* 9. Buttons */
-
-.primary-btn,
-.secondary-btn,
-.header-btn {
-    cursor: pointer;
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease;
-}
-
-.primary-btn:focus-visible,
-.secondary-btn:focus-visible,
-.header-btn:focus-visible,
-.menu-toggle:focus-visible,
-.header nav a:focus-visible {
-    outline: 2px solid var(--cyan);
-    outline-offset: 5px;
-}
-
-/* 10. Footer */
-
-footer .logo {
-    display: inline-block;
-    margin-bottom: 10px;
-    transition: color .3s ease;
-}
-
-footer .logo:hover {
-    color: var(--cyan);
-}
-
-/* 11. Selection */
-
-::selection {
-    background: var(--cyan);
-    color: var(--bg);
-}
-
-/* 12. Mobile Navigation */
-
-@media (max-width: 650px) {
-
-    .header nav {
-        background: rgba(10, 22, 40, .98);
-        border-top: 1px solid var(--border);
-        margin-top: 15px;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    .header nav a {
-        padding: 8px 5px;
-        border-bottom: 1px solid rgba(255,255,255,.05);
-    }
-
-    .header nav a:last-child {
-        border-bottom: none;
-    }
-
-    .header nav a::after {
-        display: none;
-    }
-
-    .hero-visual {
-        max-width: 100%;
-    }
-
     .service-card:hover {
         transform: translateY(-5px);
     }
-
 }
 
-/* 13. Small Screens */
+/* SMALL SCREENS */
 
 @media (max-width: 380px) {
 
@@ -821,10 +810,25 @@ footer .logo:hover {
         width: 100%;
         text-align: center;
     }
-
 }
 
-/* 14. Reduced Motion Accessibility */
+/* ACCESSIBILITY */
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.header-btn:focus-visible,
+.menu-toggle:focus-visible,
+.header nav a:focus-visible,
+.site-search button:focus-visible,
+.search-result-item:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: var(--cyan);
+    color: var(--bg);
+}
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -835,117 +839,4 @@ footer .logo:hover {
         transition: none !important;
         scroll-behavior: auto !important;
     }
-
-}
-
-/* =================================
-   SENTRIXA - SEARCH BOX
-================================= */
-
-.site-search {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 7px;
-    background: #10243a;
-    border: 1px solid rgba(0, 217, 255, 0.35);
-    border-radius: 14px;
-    transition: 0.3s ease;
-}
-
-.site-search:focus-within {
-    border-color: #00d9ff;
-    box-shadow: 0 0 18px rgba(0, 217, 255, 0.2);
-}
-
-.site-search input {
-    flex: 1;
-    min-width: 0;
-    padding: 14px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #ffffff;
-    font-size: 16px;
-}
-
-.site-search input::placeholder {
-    color: #a9bbcd;
-}
-
-.site-search button {
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 10px;
-    background: #00d9ff;
-    color: #07111f;
-    font-size: 27px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.site-search button:hover {
-    background: #ffffff;
-    transform: scale(1.05);
-}
-
-.search-results {
-    max-width: 600px;
-    margin: -20px auto 30px;
-    padding: 15px;
-    background: #10243a;
-    border: 1px solid #00d9ff;
-    border-radius: 12px;
-    color: #ffffff;
-}
-.search-section {
-    text-align: center;
-    padding: 35px 20px;
-}
-
-.search-section h2 {
-    color: #ffffff;
-    font-size: 28px;
-    margin-bottom: 12px;
-}
-
-.search-section p {
-    color: #a9bbcd;
-    margin-bottom: 20px;
-} 
-
-
-/* SENTRIXA SEARCH FIX */
-
-.search-section {
-    position: relative;
-    z-index: 10;
-}
-
-.search-results {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 10px auto 25px;
-    padding: 12px;
-    background: #10243a;
-    border: 1px solid rgba(0, 217, 255, 0.4);
-    border-radius: 12px;
-}
-
-.search-result-item {
-    padding: 14px;
-    margin: 5px 0;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.search-result-item:hover {
-    background: rgba(0, 217, 255, 0.12);
-    color: #00d9ff;
 }
