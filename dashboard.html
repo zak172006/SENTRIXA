@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07111f">
+
+    <title>SENTRIXA | Security Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>S</span>
+                SENTRIXA
+            </div>
+
+            <p class="menu-title">القائمة الرئيسية</p>
+
+            <nav>
+                <a href="#" class="active">▦ لوحة التحكم</a>
+                <a href="#statistics">▤ الإحصائيات</a>
+                <a href="#threats">◈ التهديدات</a>
+                <a href="#activity">◷ النشاط الأمني</a>
+                <a href="index.html">⌂ الموقع الرئيسي</a>
+            </nav>
+
+            <div class="sidebar-status">
+                <span class="status-dot"></span>
+                Demo Security Mode
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>لوحة التحكم الأمنية</h1>
+                    <p>مرحباً بك في مركز مراقبة SENTRIXA</p>
+                </div>
+
+                <div class="user-profile">
+                    <span class="user-avatar">S</span>
+                    <span>Security Admin</span>
+                </div>
+            </header>
+
+            <!-- Welcome -->
+            <section class="welcome">
+                <div>
+                    <span class="welcome-label">SECURITY OPERATIONS CENTER</span>
+                    <h2>حماية رقمية تبدأ من هنا.</h2>
+                    <p>راقب مؤشرات الأمان وتابع النشاط الأمني من مكان واحد.</p>
+                </div>
+
+                <div class="welcome-icon">⬡</div>
+            </section>
+
+            <!-- Statistics -->
+            <section id="statistics" class="stats-grid">
+
+                <article class="stat-card">
+                    <span>حالة النظام</span>
+                    <h2 class="green">مستقر</h2>
+                    <small>حالة تجريبية</small>
+                </article>
+
+                <article class="stat-card">
+                    <span>التهديدات المكتشفة</span>
+                    <h2>12</h2>
+                    <small>بيانات تجريبية</small>
+                </article>
+
+                <article class="stat-card">
+                    <span>عمليات الفحص</span>
+                    <h2>48</h2>
+                    <small>بيانات تجريبية</small>
+                </article>
+
+                <article class="stat-card">
+                    <span>مستوى الحماية</span>
+                    <h2 class="cyan">94%</h2>
+                    <small>مؤشر تجريبي</small>
+                </article>
+
+            </section>
+
+            <!-- Threats -->
+            <section id="threats" class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>التنبيهات الأمنية</h2>
+                        <p>آخر الأحداث المسجلة في النظام التجريبي</p>
+                    </div>
+
+                    <span class="live-badge">DEMO</span>
+                </div>
+
+                <div class="threat-row">
+                    <span class="threat-icon danger">!</span>
+                    <div>
+                        <strong>محاولة دخول غير معتادة</strong>
+                        <p>تنبيه تجريبي - مستوى مرتفع</p>
+                    </div>
+                    <span class="severity high">مرتفع</span>
+                </div>
+
+                <div class="threat-row">
+                    <span class="threat-icon warning">!</span>
+                    <div>
+                        <strong>تحديث أمني مطلوب</strong>
+                        <p>تنبيه تجريبي - مستوى متوسط</p>
+                    </div>
+                    <span class="severity medium">متوسط</span>
+                </div>
+
+                <div class="threat-row">
+                    <span class="threat-icon safe">✓</span>
+                    <div>
+                        <strong>اكتمل فحص النظام</strong>
+                        <p>عملية تجريبية ناجحة</p>
+                    </div>
+                    <span class="severity low">منخفض</span>
+                </div>
+            </section>
+
+            <!-- Activity -->
+            <section id="activity" class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>النشاط الأمني</h2>
+                        <p>ملخص العمليات التجريبية</p>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <div class="activity-line">
+                        <span></span>
+                        <p>تم تشغيل لوحة المراقبة</p>
+                        <small>الآن</small>
+                    </div>
+
+                    <div class="activity-line">
+                        <span></span>
+                        <p>تم تسجيل فحص أمني تجريبي</p>
+                        <small>منذ 10 دقائق</small>
+                    </div>
+
+                    <div class="activity-line">
+                        <span></span>
+                        <p>تم تحديث بيانات النظام التجريبية</p>
+                        <small>منذ 30 دقيقة</small>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                © 2026 SENTRIXA Cybersecurity. All Rights Reserved.
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>
