@@ -228,3 +228,53 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Responsive Layout: Ready");
 
 });
+
+// =====================================
+// SENTRIXA - SMART SEARCH
+// =====================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const searchForm = document.getElementById("siteSearch");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    const services = [
+        "الأمن السيبراني",
+        "حماية المواقع",
+        "اختبار الاختراق",
+        "تحليل الثغرات",
+        "حماية الشبكات",
+        "أمن المعلومات",
+        "الاستجابة للهجمات الإلكترونية"
+    ];
+
+    if (!searchForm || !searchInput || !searchResults) return;
+
+    searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (!query) {
+            searchResults.hidden = false;
+            searchResults.textContent = "اكتب اسم الخدمة للبحث.";
+            return;
+        }
+
+        const results = services.filter(service =>
+            service.toLowerCase().includes(query)
+        );
+
+        searchResults.hidden = false;
+
+        if (results.length > 0) {
+            searchResults.innerHTML = results
+                .map(service => `<p class="search-result-item">✓ ${service}</p>`)
+                .join("");
+        } else {
+            searchResults.textContent = "لم يتم العثور على الخدمة.";
+        }
+    });
+
+});
