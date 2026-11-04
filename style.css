@@ -837,3 +837,67 @@ footer .logo:hover {
     }
 
 }
+
+/* =================================
+   SENTRIXA - SEARCH BOX
+================================= */
+
+.site-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 7px;
+    background: #10243a;
+    border: 1px solid rgba(0, 217, 255, 0.35);
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+.site-search:focus-within {
+    border-color: #00d9ff;
+    box-shadow: 0 0 18px rgba(0, 217, 255, 0.2);
+}
+
+.site-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.site-search input::placeholder {
+    color: #a9bbcd;
+}
+
+.site-search button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    background: #00d9ff;
+    color: #07111f;
+    font-size: 27px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.site-search button:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+}
+
+.search-results {
+    max-width: 600px;
+    margin: -20px auto 30px;
+    padding: 15px;
+    background: #10243a;
+    border: 1px solid #00d9ff;
+    border-radius: 12px;
+    color: #ffffff;
+}
