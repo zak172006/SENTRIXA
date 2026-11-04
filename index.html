@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -34,41 +35,47 @@
     </button>
 
     <nav id="navMenu">
-
         <a href="#home">الرئيسية</a>
         <a href="#services">خدماتنا</a>
         <a href="#about">من نحن</a>
         <a href="#features">مميزاتنا</a>
         <a href="#contact">تواصل معنا</a>
-
     </nav>
-<section class="search-section">
-
-    <h2>ابحث عن الخدمة التي تحتاجها</h2>
-
-    <p>اكتشف حلول الحماية والأمن السيبراني من SENTRIXA</p>
-
-    <form class="site-search" id="siteSearch" role="search">
-        <input
-            type="search"
-            id="searchInput"
-            placeholder="ابحث عن خدمة..."
-            aria-label="ابحث داخل الموقع"
-        >
-        <button type="submit" aria-label="بحث">⌕</button>
-    </form>
-
-    <div class="search-results" id="searchResults" hidden></div>
-
-</section>
-
-<div class="search-results" id="searchResults" hidden></div>
 
     <a href="#contact" class="header-btn">
         ابدأ الآن
     </a>
 
 </header>
+
+
+<!-- SEARCH SECTION -->
+<section class="search-section" aria-label="البحث عن الخدمات">
+
+    <h2>ابحث عن الخدمة التي تحتاجها</h2>
+
+    <p>اكتشف حلول الحماية والأمن السيبراني من SENTRIXA</p>
+
+    <form class="site-search" id="siteSearch" role="search">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="ابحث عن خدمة..."
+            aria-label="ابحث داخل الموقع"
+        >
+
+        <button type="submit" aria-label="بحث">⌕</button>
+
+    </form>
+
+    <div
+        class="search-results"
+        id="searchResults"
+        hidden>
+    </div>
+
+</section>
 
 
 <!-- MAIN CONTENT -->
@@ -107,7 +114,6 @@
             </div>
 
         </div>
-
 
         <div class="hero-visual">
 
@@ -162,7 +168,7 @@
 
         <div class="cards">
 
-            <article class="service-card">
+            <article class="service-card" id="service-website">
 
                 <div class="service-icon">🛡️</div>
 
@@ -176,7 +182,7 @@
             </article>
 
 
-            <article class="service-card">
+            <article class="service-card" id="service-scan">
 
                 <div class="service-icon">🔍</div>
 
@@ -190,7 +196,7 @@
             </article>
 
 
-            <article class="service-card">
+            <article class="service-card" id="service-data">
 
                 <div class="service-icon">🔐</div>
 
@@ -204,7 +210,7 @@
             </article>
 
 
-            <article class="service-card">
+            <article class="service-card" id="service-monitoring">
 
                 <div class="service-icon">📡</div>
 
@@ -218,7 +224,7 @@
             </article>
 
 
-            <article class="service-card">
+            <article class="service-card" id="service-reports">
 
                 <div class="service-icon">📊</div>
 
@@ -232,7 +238,7 @@
             </article>
 
 
-            <article class="service-card">
+            <article class="service-card" id="service-awareness">
 
                 <div class="service-icon">🎓</div>
 
@@ -300,15 +306,10 @@
         <div class="feature-list">
 
             <div>✓ واجهة سهلة الاستخدام</div>
-
             <div>✓ تقارير أمنية منظمة</div>
-
             <div>✓ الاهتمام بخصوصية البيانات</div>
-
             <div>✓ تصميم متوافق مع الأجهزة</div>
-
             <div>✓ حلول قابلة للتطوير</div>
-
             <div>✓ توعية ومتابعة أمنية</div>
 
         </div>
