@@ -67,7 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 650) closeMenu();
+            if (window.innerWidth > 650) {
+                closeMenu();
+            }
         });
     }
 
@@ -77,9 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", event => {
 
             const targetId = link.getAttribute("href");
+
             if (!targetId || targetId === "#") return;
 
             const target = document.querySelector(targetId);
+
             if (!target) return;
 
             event.preventDefault();
@@ -127,18 +131,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
 
+    // الخدمات الحقيقية الموجودة في index.html
     const services = [
-        "الأمن السيبراني",
-        "حماية المواقع",
-        "اختبار الاختراق",
-        "تحليل الثغرات",
-        "حماية الشبكات",
-        "أمن المعلومات",
-        "الاستجابة للهجمات الإلكترونية"
+        {
+            name: "حماية المواقع",
+            id: "service-website",
+            keywords: ["حماية المواقع", "المواقع", "website", "web"]
+        },
+        {
+            name: "الفحص الأمني",
+            id: "service-scan",
+            keywords: [
+                "الفحص الأمني",
+                "اختبار الاختراق",
+                "الاختراق",
+                "فحص",
+                "penetration testing"
+            ]
+        },
+        {
+            name: "حماية البيانات",
+            id: "service-data",
+            keywords: ["حماية البيانات", "البيانات", "data"]
+        },
+        {
+            name: "مراقبة التهديدات",
+            id: "service-monitoring",
+            keywords: [
+                "مراقبة التهديدات",
+                "التهديدات",
+                "الهجمات",
+                "cyber threats"
+            ]
+        },
+        {
+            name: "التقارير الأمنية",
+            id: "service-reports",
+            keywords: ["التقارير الأمنية", "التقارير", "reports"]
+        },
+        {
+            name: "التوعية الأمنية",
+            id: "service-awareness",
+            keywords: ["التوعية الأمنية", "التوعية", "أمن المعلومات", "awareness"]
+        }
     ];
 
     if (searchForm && searchInput && searchResults) {
 
+        // تنفيذ البحث
         searchForm.addEventListener("submit", event => {
 
             event.preventDefault();
@@ -153,9 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const matches = services.filter(service =>
-                service.toLowerCase().includes(query)
-            );
+            const matches = services.filter(service => {
+
+                return service.name.toLowerCase().includes(query) ||
+                    service.keywords.some(keyword =>
+                        keyword.toLowerCase().includes(query)
+                    );
+            });
 
             if (matches.length === 0) {
                 searchResults.textContent =
@@ -163,21 +207,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+            // عرض نتائج البحث كرابط مباشر
             matches.forEach(service => {
 
-                const item = document.createElement("p");
+                const link = document.createElement("a");
 
-                item.className = "search-result-item";
-                item.textContent = "✓ " + service;
+                link.href = "#" + service.id;
+                link.className = "search-result-item";
+                link.textContent = "✓ " + service.name;
 
-                searchResults.appendChild(item);
+                searchResults.appendChild(link);
             });
-
         });
 
+        // إخفاء النتائج عند الكتابة من جديد
         searchInput.addEventListener("input", () => {
             searchResults.hidden = true;
             searchResults.replaceChildren();
+        });
+
+        // التعامل مع الضغط على نتيجة بحث ديناميكية
+        searchResults.addEventListener("click", event => {
+
+            const link = event.target.closest("a.search-result-item");
+
+            if (!link) return;
+
+            const target = document.getElementById(
+                link.getAttribute("href").slice(1)
+            );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            searchResults.hidden = true;
+
+            target.scrollIntoView({
+                behavior: prefersReducedMotion ? "auto" : "smooth",
+                block: "start"
+            });
         });
 
     } else {
@@ -185,7 +254,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 9. Application Initialization
-    console.log("%c SENTRIXA ", 
+    console.log(
+        "%c SENTRIXA ",
         "background:#00e5ff;color:#050b16;font-size:20px;font-weight:bold;padding:10px;"
     );
 
