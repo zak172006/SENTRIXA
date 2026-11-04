@@ -916,3 +916,36 @@ footer .logo:hover {
     color: #a9bbcd;
     margin-bottom: 20px;
 } 
+
+
+/* SENTRIXA SEARCH FIX */
+
+.search-section {
+    position: relative;
+    z-index: 10;
+}
+
+.search-results {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto 25px;
+    padding: 12px;
+    background: #10243a;
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    border-radius: 12px;
+}
+
+.search-result-item {
+    padding: 14px;
+    margin: 5px 0;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.search-result-item:hover {
+    background: rgba(0, 217, 255, 0.12);
+    color: #00d9ff;
+}
