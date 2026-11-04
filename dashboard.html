@@ -1,5 +1,4 @@
 
-<
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -12,7 +11,15 @@
 
     <title>SENTRIXA | Security Dashboard</title>
 
+    <!-- Main Dashboard CSS -->
     <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Leaflet Map CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
 </head>
 
 <body>
@@ -33,6 +40,7 @@
             <a href="#top" class="active">▦ لوحة التحكم</a>
             <a href="#statistics">▤ الإحصائيات</a>
             <a href="#analytics">◈ التحليلات</a>
+            <a href="#threat-map-section">◎ الخريطة العالمية</a>
             <a href="#threats">⚠ التهديدات</a>
             <a href="#activity">◷ النشاط الأمني</a>
             <a href="index.html">⌂ الموقع الرئيسي</a>
@@ -134,6 +142,7 @@
                             <h3>معدل الهجمات الأمنية</h3>
                             <p>عدد الهجمات خلال آخر 7 أيام</p>
                         </div>
+
                         <span class="chart-indicator">7 DAYS</span>
                     </div>
 
@@ -151,6 +160,7 @@
                             <h3>مستويات التهديدات</h3>
                             <p>توزيع مستويات الخطورة</p>
                         </div>
+
                         <span class="chart-indicator">THREATS</span>
                     </div>
 
@@ -161,6 +171,67 @@
                 </article>
 
             </div>
+
+        </section>
+
+        <!-- GLOBAL THREAT MAP -->
+        <section id="threat-map-section" class="panel map-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h2>خريطة المراقبة الأمنية العالمية</h2>
+                    <p>عرض جغرافي للأحداث الأمنية المسجلة</p>
+                </div>
+
+                <span class="live-badge">GLOBAL MAP</span>
+            </div>
+
+            <!-- MAP INFORMATION -->
+            <div class="map-info">
+
+                <div class="map-status">
+                    <span class="status-dot"></span>
+                    <span>خريطة متصلة</span>
+                </div>
+
+                <span class="map-demo-label">
+                    بيانات المواقع التجريبية
+                </span>
+
+            </div>
+
+            <!-- MAP CONTAINER -->
+            <div
+                id="threatMap"
+                role="application"
+                aria-label="خريطة المراقبة الأمنية العالمية"
+            ></div>
+
+            <!-- MAP LEGEND -->
+            <div class="map-legend">
+
+                <span>
+                    <i class="legend-dot high-dot"></i>
+                    مرتفع
+                </span>
+
+                <span>
+                    <i class="legend-dot medium-dot"></i>
+                    متوسط
+                </span>
+
+                <span>
+                    <i class="legend-dot low-dot"></i>
+                    منخفض
+                </span>
+
+            </div>
+
+            <p class="map-disclaimer">
+                الخريطة تستخدم بيانات جغرافية فعلية من OpenStreetMap،
+                أما مواقع الأحداث الأمنية المعروضة فهي تجريبية
+                وليست هجمات حقيقية مرصودة.
+            </p>
 
         </section>
 
@@ -231,28 +302,34 @@
 
                 <div class="activity-item">
                     <span class="activity-icon">✓</span>
+
                     <div>
                         <strong>تم تشغيل لوحة المراقبة</strong>
                         <p>النظام التجريبي يعمل بنجاح</p>
                     </div>
+
                     <small>الآن</small>
                 </div>
 
                 <div class="activity-item">
                     <span class="activity-icon">⌕</span>
+
                     <div>
                         <strong>تم تسجيل فحص أمني تجريبي</strong>
                         <p>اكتملت عملية الفحص</p>
                     </div>
+
                     <small>منذ 10 دقائق</small>
                 </div>
 
                 <div class="activity-item">
                     <span class="activity-icon">↻</span>
+
                     <div>
                         <strong>تم تحديث بيانات النظام</strong>
                         <p>تحديث البيانات التجريبية</p>
                     </div>
+
                     <small>منذ 30 دقيقة</small>
                 </div>
 
@@ -260,6 +337,7 @@
 
         </section>
 
+        <!-- FOOTER -->
         <footer>
             © 2026 SENTRIXA Cybersecurity. All Rights Reserved.
         </footer>
@@ -270,6 +348,9 @@
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Leaflet Map JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Dashboard Controller -->
 <script src="dashboard.js"></script>
