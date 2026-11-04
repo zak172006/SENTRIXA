@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="SENTRIXA - حلول متطورة للأمن السيبراني وحماية الأنظمة والبيانات.">
-
     <meta name="theme-color" content="#07111f">
 
     <title>SENTRIXA | Cyber Security</title>
@@ -49,29 +48,45 @@
 </header>
 
 
-<!-- SEARCH SECTION -->
+<!-- ADVANCED SEARCH SECTION -->
 <section class="search-section" aria-label="البحث عن الخدمات">
+
+    <span class="tag">SENTRIXA SMART SEARCH</span>
 
     <h2>ابحث عن الخدمة التي تحتاجها</h2>
 
-    <p>اكتشف حلول الحماية والأمن السيبراني من SENTRIXA</p>
+    <p>
+        اكتشف حلول الحماية والأمن السيبراني من SENTRIXA
+    </p>
 
-    <form class="site-search" id="siteSearch" role="search">
+    <form
+        class="site-search"
+        id="siteSearch"
+        role="search"
+        autocomplete="off">
 
         <input
             type="search"
             id="searchInput"
-            placeholder="ابحث عن خدمة..."
+            placeholder="ابحث عن خدمة مثل حماية المواقع..."
             aria-label="ابحث داخل الموقع"
+            aria-controls="searchResults"
+            aria-expanded="false"
+            autocomplete="off"
         >
 
-        <button type="submit" aria-label="بحث">⌕</button>
+        <button type="submit" aria-label="بحث">
+            ⌕
+        </button>
 
     </form>
 
+    <!-- LIVE SEARCH RESULTS -->
     <div
         class="search-results"
         id="searchResults"
+        aria-label="اقتراحات ونتائج البحث"
+        aria-live="polite"
         hidden>
     </div>
 
